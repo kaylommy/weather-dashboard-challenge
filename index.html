@@ -16,9 +16,9 @@
 <body>
     <div class="searchContainer vh-100 d-flex align-items-left">
         <form class="search form-block col-3 col-md-3 col-lg-3">
-            <h2>Search for a City:</h2>
-            <input class="form-control mr-sm-2" type="search" placeholder="Boston" aria-label="Boston">
-            <button id='searchBtn' class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            <h2 class="city">Search for a City:</h2>
+            <input id='user-input' class="form-control mr-sm-2" type="search" placeholder="Boston" aria-label="Boston">
+            <button class="search-btn btn btn-success my-2 my-sm-0" type="submit">Search</button>
             <hr class="line" />
             <div class="cityListDiv">
                 <ul id="cityListItems"></ul>
@@ -27,14 +27,22 @@
         <div id="resultsContainer">
             <section id="searchResults">
                 <div class="container">
-                    <h2 id="cityName">Boston</h2>
-                    <p id="temp">Temp:</p>
-                    <p id="wind">Wind:</p>
-                    <p id="humidity">Humidity:</p>
+                    <h2 id="city"></h2>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="humidity"></p>
                 </div>
             </section>
-            <section id="5day">
+            <section class="5day">
                 <h2>5-Day Forecast:</h2>
+                <ul class="cards">
+                    <li class="weather-cards">
+                        <h3></h3>
+                        <h4></h4>
+                        <h4></h4>
+                        <h4></h4>
+                    </li>
+                </ul>
             </section>
         </div>
     </div>
