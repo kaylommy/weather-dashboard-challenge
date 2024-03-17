@@ -27,7 +27,7 @@ function getCityWeather() {
     const weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?lat='+ lat + '&lon=' + lon + '&appid=' + APIKey + '&units=imperial';
 console.log(weatherURL)
     fetch(weatherURL).then(response => response.json()).then(data =>{
-        var cityInput = data['city']['name'];
+        var cityInput = data.city.name;
         var cityTemperature = data.list[0].main.temp + '\u00B0F';
         var cityWind = data.list[0].wind.speed + ' MPH';
         var cityHumidity = data.list[0].main.humidity + '%';
@@ -58,7 +58,8 @@ function getFiveDayForecast(lat, lon) {
 
                 // Create a div and give class card creating bootstrap cards for each of the 5 days.
                 var card = document.createElement('div');
-                card.classList.add('card', 'bg-dark', 'text-white');
+                card.classList.add('card', 'bg-dark', 'text-white', 'd-inline-block', 'm-3');
+                card.style.height = '200px';
                 // card.classList.add('bg-dark');
                 card.innerHTML = `
                     <h3>${forecastDate}</h3>
