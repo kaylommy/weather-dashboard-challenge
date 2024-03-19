@@ -70,3 +70,10 @@ input {
     margin-top: 0;
     margin-left: 0;
 }
+.card {
+    width: 12rem;
+}
+
+ol {
+    padding-left: 0;
+}

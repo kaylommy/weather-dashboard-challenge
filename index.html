@@ -17,17 +17,20 @@
     <div class="searchContainer vh-100 d-flex align-items-left">
         <form class="search form-block col-3 col-md-3 col-lg-3">
             <h2 class="city">Search for a City:</h2>
-            <input id='user-input' class="form-control mr-sm-2" type="search" placeholder="Boston" aria-label="Boston">
+            <input id='user-input' class="form-control mr-sm-2" type="search" placeholder="Enter city name..." aria-label="Enter city name...">
             <button class="search-btn btn btn-success my-2 my-sm-0" type="submit">Search</button>
             <hr class="line" />
-            <div class="cityListDiv">
-                <ul id="cityListItems"></ul>
+            <div>
+                <ol class="search-results">
+                    
+                </ol>
             </div>
         </form>
         <div id="resultsContainer">
             <section id="searchResults">
                 <div class="container">
                     <h2 id="city"></h2>
+                    <img src="">
                     <p id="temp"></p>
                     <p id="wind"></p>
                     <p id="humidity"></p>
