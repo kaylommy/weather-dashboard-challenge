@@ -5,7 +5,7 @@ var temperature = document.querySelector('#temp');
 var wind = document.querySelector('#wind');
 var humidity = document.querySelector('#humidity');
 // var currentDate = dayjs().format(' (M/D/YYYY)');
-var searchHistory = JSON.parse(localStorage.getItem('history')) || [];
+// var searchHistory = JSON.parse(localStorage.getItem('history')) || [];
 
 function getCityCoords(cityName) {
 
@@ -27,7 +27,6 @@ function getCityCoords(cityName) {
 function getCurrentWeather(lat, lon) {
     const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`
     fetch(weatherURL).then(response => response.json()).then(data => {
-        console.log(data, 'current weather')
         var cityInput = data.name;
         var cityTemperature = data.main.temp + '\u00B0F';
         var cityWind = data.wind.speed + ' MPH';
@@ -88,9 +87,6 @@ function populateCityCoords(cityName) {
             localStorage.setItem('cityLatLon', JSON.stringify({...cityObj, ...localCityLatLon}))
             citySearchHistory(data.city.name)
         })
-            .catch(() => {
-                alert('an error occured!');
-            });
     });
 }
 
@@ -114,7 +110,6 @@ var searchResults = document.querySelector('.search-results')
 
 function displaySearchHistory() {
     searchResults.innerHTML = '';
-    var cityLatLon = JSON.parse(localStorage.getItem('cityLatLon'));
     var history = JSON.parse(localStorage.getItem('history'));
     console.log(history)
 
@@ -122,20 +117,14 @@ function displaySearchHistory() {
         var button = document.createElement('button');
         button.classList.add('cityHistoryBtn', 'btn', 'btn-primary');
         button.innerHTML = history[i];
-        // console.log(cityLatLon[history[i]]);
-        // console.log(cityLatLon)
-        // console.log(history[i]);
-        // console.log(cityLatLon[history[i]].lat, cityLatLon[history[i]].lon)
-       
         searchResults.append(button);
-
     }
     searchResults.addEventListener('click', function(event) {
         event.preventDefault();
         var cityName = event.target.textContent;
         populateCityCoords(cityName);
-
     });
+
 }
 
 const searchBtn = document.querySelector('.search-btn');
