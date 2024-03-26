@@ -119,7 +119,6 @@ function displaySearchHistory() {
     console.log(history)
 
     for(let i=0; i < history.length; i++) {
-
         var button = document.createElement('button');
         button.classList.add('cityHistoryBtn', 'btn', 'btn-primary');
         button.innerHTML = history[i];
@@ -143,4 +142,3 @@ const searchBtn = document.querySelector('.search-btn');
 searchBtn.addEventListener('click', getCityWeather, citySearchHistory);
 
 displaySearchHistory();
-
