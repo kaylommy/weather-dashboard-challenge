@@ -12,7 +12,7 @@ function getCityCoords(cityName) {
 
     console.log({cityName})
     if (!cityName) return;
-    var coordinatesURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&appid=' + APIKey + '&units-imperial';
+    var coordinatesURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&appid=' + APIKey + '&units-imperial';
     return fetch(coordinatesURL).then(response => response.json()).then(data => {
         var lat = data[0]['lat'];
         var lon = data[0]['lon'];
